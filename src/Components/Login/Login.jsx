@@ -1,20 +1,18 @@
+/* eslint-disable no-unused-vars */
+
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import AuthWrapper from "../Authentication/AuthWrapper";
 import Logo from "../Assets/images/logo-ge.png";
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -29,9 +27,13 @@ function Copyright(props) {
   );
 }
 
-const defaultTheme = createTheme();
+function SignIn() {
+  const navigate = useNavigate();
 
-export default function SignIn() {
+  const handleSignUpClick = () => {
+    navigate("/signup"); // Specify the path to your SignUp page
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -43,7 +45,6 @@ export default function SignIn() {
 
   return (
     <AuthWrapper>
-      {/* <Container component="main" maxWidth="xs" sx={{ backgroundColor: "white" }}> */}
       <Box
         sx={{
           display: "flex",
@@ -76,7 +77,7 @@ export default function SignIn() {
             <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
               Sign In
             </Button>
-            <Stack>
+            <Stack direction="row" justifyContent="center">
               <Link href="#" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
@@ -85,7 +86,8 @@ export default function SignIn() {
           <Copyright sx={{ mt: 4, mb: 2 }} />
         </Stack>
       </Box>
-      {/* </Container> */}
     </AuthWrapper>
   );
 }
+
+export default SignIn;
