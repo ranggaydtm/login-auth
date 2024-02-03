@@ -12,7 +12,7 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import AuthWrapper from "../Authentication/AuthWrapper";
 import Logo from "../Assets/images/logo-ge.png";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -28,11 +28,11 @@ function Copyright(props) {
 }
 
 function SignIn() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const handleSignUpClick = () => {
-    navigate("/signup"); // Specify the path to your SignUp page
-  };
+  // const handleSignUpClick = () => {
+  //   navigate("/signup");
+  // };
 
   const handleSubmit = (event) => {
     event.preventDefault();
